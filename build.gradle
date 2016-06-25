@@ -33,6 +33,7 @@ ext.versions = [
     log4j  : '2.6.1',
     jackson: '2.7.5',
     guava  : '19.0',
+    metrics: '3.1.2',
     junit  : '4.12',
     mockito: '2.0.62-beta',
     assertj: '3.4.1',
@@ -55,6 +56,7 @@ dependencies {
     compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: versions.jackson
 
     compile group: 'com.google.guava', name: 'guava', version: versions.guava
+    compile group: 'io.dropwizard.metrics', name: 'metrics-core', version: versions.metrics
 
     testCompile group: 'junit', name: 'junit', version: versions.junit
     testCompile group: 'org.mockito', name: 'mockito-core', version: versions.mockito
