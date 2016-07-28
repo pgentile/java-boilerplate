@@ -1,3 +1,8 @@
+// Sample build script, including most common libraries
+//
+// References :
+//   - JUnit 5 and Gradle : https://github.com/junit-team/junit5-samples/tree/dev/junit5-gradle-consumer
+
 buildscript {
 
     repositories {
@@ -7,6 +12,7 @@ buildscript {
     }
 
     dependencies {
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M2'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.11.3'
     }
 
@@ -23,6 +29,7 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'org.junit.platform.gradle.plugin'
 apply plugin: 'com.github.ben-manes.versions'
 
 
@@ -30,13 +37,13 @@ sourceCompatibility = 1.8
 
 ext.versions = [
     slf4j  : '1.7.21',
-    log4j  : '2.6.1',
-    jackson: '2.7.5',
+    log4j  : '2.6.2',
+    jackson: '2.8.1',
     guava  : '19.0',
     metrics: '3.1.2',
-    junit  : '4.12',
-    mockito: '2.0.62-beta',
-    assertj: '3.4.1',
+    junit  : '5.0.0-M2',
+    mockito: '2.0.91-beta',
+    assertj: '3.5.2',
 ]
 
 
@@ -47,6 +54,7 @@ dependencies {
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: versions.log4j
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: versions.log4j
     compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: versions.log4j
+    compile group: 'org.apache.logging.log4j', name: 'log4j-jul', version: versions.log4j
 
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: versions.jackson
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: versions.jackson
@@ -58,11 +66,13 @@ dependencies {
     compile group: 'com.google.guava', name: 'guava', version: versions.guava
     compile group: 'io.dropwizard.metrics', name: 'metrics-core', version: versions.metrics
 
-    testCompile group: 'junit', name: 'junit', version: versions.junit
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: versions.junit
+    testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: versions.junit
     testCompile group: 'org.mockito', name: 'mockito-core', version: versions.mockito
     testCompile group: 'org.assertj', name: 'assertj-core', version: versions.assertj
 
 }
+
 
 configurations.all {
 
