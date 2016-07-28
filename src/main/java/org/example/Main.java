@@ -10,7 +10,9 @@ public class Main {
 
     public static void main(String... args) {
         LOGGER.info("Hello, you");
-        LOGGER.debug("You provided arguments: {}", Joiner.on(", ").join(args));
+        if (args.length > 0) {
+            LOGGER.debug("You provided arguments: {}", Joiner.on(", ").join(args));
+        }
         LOGGER.info("End of program");
     }
 

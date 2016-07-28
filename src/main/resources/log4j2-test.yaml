@@ -6,7 +6,7 @@ Configuration:
       name: Console
       target: SYSTEM_OUT
       PatternLayout:
-        Pattern: "%d{HH:mm:ss.SSS} [%t - %X{CorrelationID}] %-5level %logger{36} - %msg%n%xEx"
+        Pattern: "%d{HH:mm:ss.SSS} [%t - %X] %-5level %logger{36} - %msg%n%xEx"
 
   Loggers:
     Root:
