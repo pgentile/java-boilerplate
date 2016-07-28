@@ -25,12 +25,11 @@ public class SampleTest {
      */
     @TestFactory
     public Stream<DynamicTest> a_non_empty_string_must_have_a_positive_size() {
-        return Stream.of("titi", "toto", "toto")
-            .map(str -> {
-                return DynamicTest.dynamicTest("'" + str + "' must have a positive size", () -> {
-                    assertThat(str.length()).isPositive();
-                });
+        return Stream.of("titi", "toto", "toto").map(str -> {
+            return DynamicTest.dynamicTest("'" + str + "' must have a positive size", () -> {
+                assertThat(str.length()).isPositive();
             });
+        });
     }
 
 }
