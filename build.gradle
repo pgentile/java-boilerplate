@@ -14,7 +14,7 @@ buildscript {
 
     dependencies {
         classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M2'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.11.3'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.13.0'
     }
 
 }
@@ -39,13 +39,13 @@ sourceCompatibility = 1.8
 ext.versions = [
     slf4j       : '1.7.21',
     log4j       : '2.6.2',
-    jackson     : '2.8.1',
+    jackson     : '2.8.2',
     guava       : '19.0',
-    caffeine    : '2.3.1',
+    caffeine    : '2.3.3',
     metrics     : '3.1.2',
     junit       : '5.0.0-M2',
-    junitVintage: '4.12.0-M1',
-    mockito     : '2.0.91-beta',
+    junitVintage: '4.12.0-M2',
+    mockito     : '2.1.0-beta.120',
     assertj     : '3.5.2',
 ]
 
