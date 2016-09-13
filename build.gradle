@@ -7,6 +7,8 @@
 buildscript {
 
     repositories {
+        jcenter()
+        mavenCentral()
         maven {
             url "https://plugins.gradle.org/m2/"
         }
@@ -15,6 +17,7 @@ buildscript {
     dependencies {
         classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M2'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.13.0'
+        classpath 'com.netflix.nebula:gradle-lint-plugin:5.1.0'
     }
 
 }
@@ -32,6 +35,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.junit.platform.gradle.plugin'
 apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'nebula.lint'
 
 
 sourceCompatibility = 1.8
