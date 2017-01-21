@@ -17,7 +17,7 @@ buildscript {
     dependencies {
         classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M3'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.13.0'
-        classpath 'com.netflix.nebula:gradle-lint-plugin:6.1.0'
+        classpath 'com.netflix.nebula:gradle-lint-plugin:6.4.0'
     }
 
 }
@@ -41,16 +41,16 @@ apply plugin: 'nebula.lint'
 sourceCompatibility = 1.8
 
 ext.versions = [
-    slf4j       : '1.7.21',
+    slf4j       : '1.7.22',
     log4j       : '2.7',
-    jackson     : '2.8.5',
-    guava       : '20.0',
+    jackson     : '2.8.6',
+    guava       : '21.0',
     caffeine    : '2.3.5',
     metrics     : '3.1.2',
     junit       : '5.0.0-M3',
     junitVintage: '4.12.0-M3',
-    mockito     : '2.2.28',
-    assertj     : '3.6.1',
+    mockito     : '2.6.4',
+    assertj     : '3.6.2',
 ]
 
 
@@ -64,11 +64,11 @@ dependencies {
     compile group: 'org.apache.logging.log4j', name: 'log4j-jul', version: versions.log4j
 
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: versions.jackson
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: versions.jackson
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-guava', version: versions.jackson
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: versions.jackson
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: versions.jackson
     compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: versions.jackson
+    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-afterburner', version: versions.jackson
 
     compile group: 'com.google.guava', name: 'guava', version: versions.guava
     compile group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: versions.caffeine
