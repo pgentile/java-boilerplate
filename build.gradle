@@ -45,12 +45,12 @@ ext.versions = [
     log4j       : '2.8.2',
     jackson     : '2.8.8',
     guava       : '21.0',
-    caffeine    : '2.4.0',
+    caffeine    : '2.5.0',
     metrics     : '3.2.2',
     junit       : '5.0.0-M4',
     junitVintage: '4.12.0-M4',
     mockito     : '2.7.22',
-    assertj     : '3.6.2',
+    assertj     : '3.7.0',
 ]
 
 
