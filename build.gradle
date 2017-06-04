@@ -16,8 +16,8 @@ buildscript {
 
     dependencies {
         classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M4'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
-        classpath 'com.netflix.nebula:gradle-lint-plugin:7.3.5'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
+        classpath 'com.netflix.nebula:gradle-lint-plugin:7.4.0'
     }
 
 }
@@ -44,13 +44,13 @@ ext.versions = [
     slf4j       : '1.7.25',
     log4j       : '2.8.2',
     jackson     : '2.8.8',
-    guava       : '21.0',
-    caffeine    : '2.5.0',
+    guava       : '22.0',
+    caffeine    : '2.5.2',
     metrics     : '3.2.2',
     junit       : '5.0.0-M4',
     junitVintage: '4.12.0-M4',
-    mockito     : '2.7.22',
-    assertj     : '3.7.0',
+    mockito     : '2.8.9',
+    assertj     : '3.8.0',
 ]
 
 
