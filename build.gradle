@@ -15,9 +15,9 @@ buildscript {
     }
 
     dependencies {
-        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.1'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
-        classpath 'com.netflix.nebula:gradle-lint-plugin:8.3.1'
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.3'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
+        classpath 'com.netflix.nebula:gradle-lint-plugin:8.3.2'
     }
 
 }
@@ -41,15 +41,15 @@ apply plugin: 'nebula.lint'
 sourceCompatibility = 1.8
 
 ext.versions = [
-    slf4j       : '1.7.25',
-    log4j       : '2.9.1',
-    jackson     : '2.9.1',
-    guava       : '23.1-jre',
-    caffeine    : '2.5.6',
-    metrics     : '3.2.5',
-    junit       : '5.0.1',
-    mockito     : '2.10.0',
-    assertj     : '3.8.0',
+    slf4j   : '1.7.25',
+    log4j   : '2.10.0',
+    jackson : '2.9.4',
+    guava   : '24.0-jre',
+    caffeine: '2.6.1',
+    metrics : '4.0.2',
+    junit   : '5.0.3',
+    mockito : '2.15.0',
+    assertj : '3.9.0',
 ]
 
 
@@ -90,6 +90,24 @@ configurations.all {
             substitute module('commons-logging:commons-logging') with module("org.slf4j:jcl-over-slf4j:${versions.slf4j}")
         }
 
+    }
+
+}
+
+
+dependencyUpdates {
+
+    resolutionStrategy = {
+        componentSelection { rules ->
+            rules.all { ComponentSelection selection ->
+                boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm'].any { qualifier ->
+                    selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+                }
+                if (rejected) {
+                    selection.reject('Release candidate')
+                }
+            }
+        }
     }
 
 }
