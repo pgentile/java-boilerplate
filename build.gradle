@@ -1,27 +1,6 @@
-// Sample build script, including most common libraries
-//
-// References :
-//   - JUnit 5 and Gradle: https://github.com/junit-team/junit5-samples/tree/dev/junit5-gradle-consumer
-//   - JUnit platform runner: http://junit.org/junit5/docs/current/user-guide/#running-tests-junit-platform-runner
-
-buildscript {
-
-    repositories {
-        jcenter()
-        mavenCentral()
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-
-    dependencies {
-        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.3'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
-        classpath 'com.netflix.nebula:gradle-lint-plugin:8.3.2'
-    }
-
+plugins {
+    id "com.github.ben-manes.versions" version "0.17.0"
 }
-
 
 repositories {
     mavenCentral()
@@ -31,11 +10,9 @@ repositories {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'org.junit.platform.gradle.plugin'
-apply plugin: 'com.github.ben-manes.versions'
-apply plugin: 'nebula.lint'
 
 
 sourceCompatibility = 1.8
@@ -47,9 +24,9 @@ ext.versions = [
     guava   : '24.0-jre',
     caffeine: '2.6.1',
     metrics : '4.0.2',
-    junit   : '5.0.3',
+    junit   : '5.1.0',
     mockito : '2.15.0',
-    assertj : '3.9.0',
+    assertj : '3.9.1',
 ]
 
 
@@ -74,9 +51,10 @@ dependencies {
     compile group: 'io.dropwizard.metrics', name: 'metrics-core', version: versions.metrics
 
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: versions.junit
-    testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: versions.junit
     testCompile group: 'org.mockito', name: 'mockito-core', version: versions.mockito
     testCompile group: 'org.assertj', name: 'assertj-core', version: versions.assertj
+
+    testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: versions.junit
 
 }
 
@@ -110,4 +88,11 @@ dependencyUpdates {
         }
     }
 
+}
+
+
+test {
+    useJUnitPlatform {
+        includeEngines 'junit-jupiter'
+    }
 }
