@@ -12,8 +12,6 @@ version '1.0-SNAPSHOT'
 apply plugin: StandardProjectPlugin
 
 
-sourceCompatibility = 1.8
-
 ext.versions = [
     slf4j         : '1.7.25',
     log4j         : '2.11.0',

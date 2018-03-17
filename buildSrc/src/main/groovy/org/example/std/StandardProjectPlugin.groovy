@@ -21,10 +21,20 @@ class StandardProjectPlugin implements Plugin<Project> {
             apply(CodeQualityPlugin)
         }
 
+        configureJava(project)
+
         project.afterEvaluate {
             configureJUnit(project, ext)
             configureDependencyUpdates(project)
         }
+    }
+
+    /**
+     * Configure Java project properties.
+     */
+    private void configureJava(Project project) {
+        project.sourceCompatibility = 1.8
+        project.targetCompatibility = project.sourceCompatibility
     }
 
     /**
