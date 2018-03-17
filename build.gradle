@@ -1,7 +1,4 @@
-plugins {
-    id 'com.github.ben-manes.versions' version '0.17.0'
-    id 'net.ltgt.errorprone' version '0.0.13'
-}
+import org.example.std.StandardProjectPlugin
 
 repositories {
     mavenCentral()
@@ -12,8 +9,7 @@ group 'org.example'
 version '1.0-SNAPSHOT'
 
 
-apply plugin: 'java'
-apply plugin: 'idea'
+apply plugin: StandardProjectPlugin
 
 
 sourceCompatibility = 1.8
@@ -52,13 +48,8 @@ dependencies {
     compile group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: versions.caffeine
     compile group: 'io.dropwizard.metrics', name: 'metrics-core', version: versions.metrics
 
-    compile group: 'com.google.code.findbugs', name: 'jsr305', version: versions.findbugsJSR305
-
-    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: versions.junit
     testCompile group: 'org.mockito', name: 'mockito-core', version: versions.mockito
     testCompile group: 'org.assertj', name: 'assertj-core', version: versions.assertj
-
-    testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: versions.junit
 
 }
 
@@ -77,28 +68,6 @@ configurations.all {
 }
 
 
-test {
-    useJUnitPlatform {
-        includeEngines 'junit-jupiter'
-    }
-}
-
-
-dependencyUpdates {
-
-    resolutionStrategy = {
-
-        componentSelection { rules ->
-            rules.all { ComponentSelection selection ->
-                boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm'].any { qualifier ->
-                    selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
-                }
-                if (rejected) {
-                    selection.reject('Release candidate')
-                }
-            }
-        }
-
-    }
-
+codeQuality {
+    basePackage 'org.example'
 }

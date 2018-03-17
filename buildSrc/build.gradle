@@ -1,0 +1,16 @@
+repositories {
+    gradlePluginPortal()
+}
+
+
+apply plugin: 'groovy'
+
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+
+    compile 'net.ltgt.gradle:gradle-apt-plugin:0.15'
+    compile 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.13'
+    compile 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
+}
