@@ -11,14 +11,14 @@ public interface ComparableContract<T extends Comparable<T>> extends EqualityCon
     @Test
     default void comparison_should_return_zero_when_compared_to_same_instance() {
         T instance = createValue();
-        assertThat(instance.compareTo(instance)).isZero();
+        assertThat(instance).isEqualByComparingTo(instance);
     }
 
     @Test
     default void comparison_should_return_zero_when_compared_to_itself() {
         T instance = createValue();
         T other = createValue();
-        assertThat(instance.compareTo(other)).isZero();
+        assertThat(instance).isEqualByComparingTo(other);
     }
 
     @Test

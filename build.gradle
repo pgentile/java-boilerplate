@@ -1,5 +1,6 @@
 plugins {
-    id "com.github.ben-manes.versions" version "0.17.0"
+    id 'com.github.ben-manes.versions' version '0.17.0'
+    id 'net.ltgt.errorprone' version '0.0.13'
 }
 
 repositories {
@@ -18,15 +19,16 @@ apply plugin: 'idea'
 sourceCompatibility = 1.8
 
 ext.versions = [
-    slf4j   : '1.7.25',
-    log4j   : '2.10.0',
-    jackson : '2.9.4',
-    guava   : '24.0-jre',
-    caffeine: '2.6.1',
-    metrics : '4.0.2',
-    junit   : '5.1.0',
-    mockito : '2.15.0',
-    assertj : '3.9.1',
+    slf4j         : '1.7.25',
+    log4j         : '2.10.0',
+    jackson       : '2.9.4',
+    guava         : '24.0-jre',
+    caffeine      : '2.6.1',
+    metrics       : '4.0.2',
+    findbugsJSR305: '3.0.2',
+    junit         : '5.1.0',
+    mockito       : '2.15.0',
+    assertj       : '3.9.1',
 ]
 
 
@@ -49,6 +51,8 @@ dependencies {
     compile group: 'com.google.guava', name: 'guava', version: versions.guava
     compile group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: versions.caffeine
     compile group: 'io.dropwizard.metrics', name: 'metrics-core', version: versions.metrics
+
+    compile group: 'com.google.code.findbugs', name: 'jsr305', version: versions.findbugsJSR305
 
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: versions.junit
     testCompile group: 'org.mockito', name: 'mockito-core', version: versions.mockito
@@ -73,9 +77,17 @@ configurations.all {
 }
 
 
+test {
+    useJUnitPlatform {
+        includeEngines 'junit-jupiter'
+    }
+}
+
+
 dependencyUpdates {
 
     resolutionStrategy = {
+
         componentSelection { rules ->
             rules.all { ComponentSelection selection ->
                 boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm'].any { qualifier ->
@@ -86,13 +98,7 @@ dependencyUpdates {
                 }
             }
         }
+
     }
 
-}
-
-
-test {
-    useJUnitPlatform {
-        includeEngines 'junit-jupiter'
-    }
 }
