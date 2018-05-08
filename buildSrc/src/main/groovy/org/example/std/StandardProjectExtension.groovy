@@ -2,6 +2,6 @@ package org.example.std
 
 class StandardProjectExtension {
 
-    String junitVersion = '5.1.0'
+    String junitVersion = '5.2.0'
 
 }
