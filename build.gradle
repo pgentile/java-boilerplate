@@ -14,15 +14,15 @@ apply plugin: StandardProjectPlugin
 
 ext.versions = [
     slf4j         : '1.7.25',
-    log4j         : '2.11.0',
-    jackson       : '2.9.5',
-    guava         : '25.0-jre',
+    log4j         : '2.11.1',
+    jackson       : '2.9.6',
+    guava         : '26.0-jre',
     caffeine      : '2.6.2',
-    metrics       : '4.0.2',
+    metrics       : '4.0.3',
     findbugsJSR305: '3.0.2',
     junit         : '5.1.0',
-    mockito       : '2.18.3',
-    assertj       : '3.9.1',
+    mockito       : '2.21.0',
+    assertj       : '3.10.0',
 ]
 
 

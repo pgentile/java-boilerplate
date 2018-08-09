@@ -5,7 +5,7 @@ class CodeQualityExtension {
     /**
      * Version of the Uber nullaway library.
      */
-    String nullawayVersion = '0.4.5'
+    String nullawayVersion = '0.5.2'
 
     /**
      * JSR-305 version.
