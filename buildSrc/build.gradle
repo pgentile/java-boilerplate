@@ -12,5 +12,5 @@ dependencies {
 
     compile 'net.ltgt.gradle:gradle-apt-plugin:0.15'
     compile 'net.ltgt.gradle:gradle-errorprone-plugin:3.0.1'
-    compile 'com.github.ben-manes:gradle-versions-plugin:0.20.0'
+    compile 'com.github.ben-manes:gradle-versions-plugin:0.44.0'
 }
