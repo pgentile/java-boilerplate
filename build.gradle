@@ -17,7 +17,7 @@ ext.versions = [
     log4j         : '2.11.1',
     jackson       : '2.9.6',
     guava         : '26.0-jre',
-    caffeine      : '2.6.2',
+    caffeine      : '2.9.3',
     metrics       : '4.0.3',
     findbugsJSR305: '3.0.2',
     junit         : '5.1.0',
