@@ -11,6 +11,6 @@ dependencies {
     compile localGroovy()
 
     compile 'net.ltgt.gradle:gradle-apt-plugin:0.21'
-    compile 'net.ltgt.gradle:gradle-errorprone-plugin:3.0.1'
+    compile 'net.ltgt.gradle:gradle-errorprone-plugin:3.1.0'
     compile 'com.github.ben-manes:gradle-versions-plugin:0.46.0'
 }
