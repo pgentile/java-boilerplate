@@ -15,7 +15,7 @@ apply plugin: StandardProjectPlugin
 ext.versions = [
     slf4j         : '2.0.7',
     log4j         : '2.20.0',
-    jackson       : '2.14.2',
+    jackson       : '2.15.0',
     guava         : '31.1-jre',
     caffeine      : '3.1.6',
     metrics       : '4.2.18',
