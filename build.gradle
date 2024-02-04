@@ -22,7 +22,7 @@ ext.versions = [
     findbugsJSR305: '3.0.2',
     junit         : '5.1.0',
     mockito       : '5.10.0',
-    assertj       : '3.25.2',
+    assertj       : '3.25.3',
 ]
 
 
